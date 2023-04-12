@@ -4,32 +4,92 @@ const mongoose = require("mongoose");
 // User schema
 const membersSchema = mongoose.Schema(
   {
-    fullname: {
+    firstName: {
       type: String,
-      required: [true, "Please add you'r fullname."],
+      required: [true, "Frist name is required."],
     },
-    phonenumber: {
+    middleName: {
       type: String,
-      required: [true, "Please add you'r phonenumber."],
+      required: [true, "Middle name is required."],
     },
-    email: {
+    lastName: {
       type: String,
-      required: [true, "Please add you'r email."],
+      required: [true, "Last name is required."],
     },
-    team: [{ type: mongoose.Schema.Types.ObjectId, ref: "Team" }],
+    dateOfBirth: {
+      type: Date,
+      required: [true, "Date of Birth is required."],
+    },
+    martialStatus: {
+      type: String,
+      required: [true, "Martial status is required."],
+    },
+    spouseFullName: {
+      type: String,
+    },
+    numberOfChildren: {
+      type: Number,
+    },
+    childrensFullName: [{ type: String }],
+    phoneNumber: {
+      type: Number,
+      required: [true, "Phone number is required."],
+    },
     address: {
-      type: String,
-      required: [true, "Please add you'r address."],
+      city: {
+        type: String,
+      },
+      subCity: {
+        type: String,
+      },
+      wereda: {
+        type: Number,
+      },
+      houseNumber: {
+        type: String,
+      },
     },
-    emergencyContactName: {
+    specificAddressName: {
       type: String,
-      required: [true, "emergency contact is required."],
     },
-    emergencyContactPhonenum: {
+    emergencyContactFullName: {
       type: String,
-      required: [true, "emergency contact phone number is required."],
     },
-    programs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],
+    emergencyContactPhonenumber: {
+      type: Number,
+    },
+    baptized: {
+      type: Boolean,
+    },
+    previousChurchName: {
+      type: String,
+    },
+    previousChurchBranch: {
+      type: String,
+    },
+    previousTeams: [{ type: String }],
+    knowOfOurChurch: [{ type: String }],
+    timeOfArrival: {
+      type: Date,
+    },
+    learningDicipleshipClass: {
+      type: Boolean,
+    },
+    teams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Team" }],
+    academicStatus: {
+      type: String,
+    },
+    profession: {
+      type: String,
+    },
+    workingInCompany: {
+      type: String,
+    },
+    skills: [{ type: String }],
+    languages: [{ type: String }],
+    vision: {
+      type: String,
+    },
   },
   {
     timestamps: true,

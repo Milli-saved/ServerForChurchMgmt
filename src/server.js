@@ -18,7 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/v1/users", require("./routes/userRoute"));
+app.use("/api/v1/users", require("./routes/userRoutes"));
+app.use("/api/v1/members", require("./routes/memberRoutes"));
+app.use("/api/v1/churchs", require("./routes/churchRoutes"));
 
 // Wrong route handler
 app.use("*", (req, res) => {

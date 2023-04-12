@@ -2,38 +2,9 @@ const asycnHandler = require("express-async-handler");
 const Member = require("../models/MembersModel");
 
 const addNewMember = asycnHandler(async (req, res) => {
-  const {
-    fullname,
-    phonenumber,
-    email,
-    team,
-    address,
-    emergencyContactName,
-    emergencyContactPhonenum,
-    programs,
-  } = req.body;
-  let member = await Member.create({
-    fullname,
-    phonenumber,
-    email,
-    team,
-    address,
-    emergencyContactName,
-    emergencyContactPhonenum,
-    programs,
-  });
+  let member = await Member.create(req.body);
   if (member) {
-    res.status(200).json({
-      id: member._id,
-      fullname,
-      phonenumber,
-      email,
-      team,
-      address,
-      programs,
-      emergencyContactName,
-      emergencyContactPhonenum,
-    });
+    res.status(200).json(member);
   }
 });
 
@@ -63,7 +34,7 @@ const getAllMembers = asycnHandler(async (req, res) => {
   const member = await Member.find({});
   if (member) {
     res.status(200).json({
-      members,
+      member,
     });
   }
 });
