@@ -18,6 +18,7 @@ const updateDepartment = asyncHandler(async (req, res) => {
     req.body,
     { new: true }
   );
+  res.status(200).json(updatedDept);
 });
 const deleteDepartment = asyncHandler(async (req, res) => {
   const deparment = await Department.findById(req.params.id);
