@@ -75,7 +75,7 @@ const membersSchema = mongoose.Schema(
     learningDicipleshipClass: {
       type: Boolean,
     },
-    teams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Team" }],
+    deparment: [{ type: mongoose.Schema.Types.ObjectId, ref: "deparment" }],
     academicStatus: {
       type: String,
     },
