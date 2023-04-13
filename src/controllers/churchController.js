@@ -36,4 +36,10 @@ const getChurchs = asyncHandler(async (req, res) => {
   }
 });
 
+const getOneChurch = asyncHandler(async (req, res) => {
+  const church = await Church.findById(req.params.id);
+  if (church) {
+    res.status(200).json(church);
+  }
+});
 module.exports = { addNewChurch, updateChurch, deleteChurch, getChurchs };

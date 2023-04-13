@@ -1,5 +1,5 @@
 const asycnHandler = require("express-async-handler");
-const Member = require("../models/MembersModel");
+const Member = require("../models/membersModel");
 
 const addNewMember = asycnHandler(async (req, res) => {
   let member = await Member.create(req.body);

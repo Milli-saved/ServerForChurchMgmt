@@ -11,7 +11,7 @@ const {
   updateMemberProfile,
   getAllMembers,
   getOneMember,
-} = require("../controllers/MembersController");
+} = require("../controllers/membersController");
 
 const router = express.Router();
 
