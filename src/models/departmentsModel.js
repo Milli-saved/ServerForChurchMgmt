@@ -13,9 +13,6 @@ const deparmentSchema = mongoose.Schema(
       type: Date,
       required: [true, "Weekly progam days are required."],
     },
-    departmentMembers: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "Member" },
-    ],
   },
   { timestamps: true }
 );

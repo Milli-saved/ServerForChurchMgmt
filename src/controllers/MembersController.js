@@ -14,6 +14,7 @@ const updateMemberProfile = asycnHandler(async (req, res) => {
     res.status(400);
     throw new Error("Can not find the requested member.");
   }
+  
   const updateMember = await Member.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
