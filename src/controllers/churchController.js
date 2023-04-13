@@ -42,4 +42,10 @@ const getOneChurch = asyncHandler(async (req, res) => {
     res.status(200).json(church);
   }
 });
-module.exports = { addNewChurch, updateChurch, deleteChurch, getChurchs };
+module.exports = {
+  addNewChurch,
+  updateChurch,
+  deleteChurch,
+  getChurchs,
+  getOneChurch,
+};
