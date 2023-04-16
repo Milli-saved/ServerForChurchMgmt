@@ -20,6 +20,22 @@ const membersSchema = mongoose.Schema(
       type: Date,
       required: [true, "Date of Birth is required."],
     },
+    username: {
+      type: String,
+      required: [true, "Please add you'r username."],
+    },
+    password: {
+      type: String,
+      required: [true, "Password is required."],
+    },
+    role: {
+      type: String,
+      required: [true, "Role is required."],
+    },
+    phoneNumber: {
+      type: Number,
+      required: [true, "Phone number is required."],
+    },
     martialStatus: {
       type: String,
       required: [true, "Martial status is required."],
@@ -31,10 +47,6 @@ const membersSchema = mongoose.Schema(
       type: Number,
     },
     childrensFullName: [{ type: String }],
-    phoneNumber: {
-      type: Number,
-      required: [true, "Phone number is required."],
-    },
     address: {
       city: {
         type: String,
@@ -75,7 +87,7 @@ const membersSchema = mongoose.Schema(
     learningDicipleshipClass: {
       type: Boolean,
     },
-    department: [{ type: mongoose.Schema.Types.ObjectId, ref: "deparment" }],
+    deparment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deparment" }],
     academicStatus: {
       type: String,
     },
