@@ -120,7 +120,7 @@ const deleteMember = asycnHandler(async (req, res) => {
 
 // Get all members
 const getAllMembers = asycnHandler(async (req, res) => {
-  const member = await Member.find({});
+  const member = await Member.find({}).select("-password");
   if (member) {
     res.status(200).json({
       member,
@@ -130,7 +130,7 @@ const getAllMembers = asycnHandler(async (req, res) => {
 
 // Get one member
 const getOneMember = asycnHandler(async (req, res) => {
-  const member = await Member.findById(req.params.id);
+  const member = await Member.findById(req.params.id).select("-password");
   if (member) {
     res.status(200).json({ member });
   }
