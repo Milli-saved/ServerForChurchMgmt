@@ -3,6 +3,7 @@ const asycnHandler = require("express-async-handler");
 const Program = require("../models/programsModel");
 const Member = mongoose.model("Member");
 
+// Add New Programs
 const addNewProgram = asycnHandler(async (req, res) => {
   let program = await Program.create(req.body);
   if (program) {
@@ -10,6 +11,7 @@ const addNewProgram = asycnHandler(async (req, res) => {
   }
 });
 
+// Update Programs
 const updateProgram = asycnHandler(async (req, res) => {
   let program = await Program.findById(req.params.id);
   if (!program) {
@@ -24,6 +26,7 @@ const updateProgram = asycnHandler(async (req, res) => {
   res.status(200).json(updatedProgram);
 });
 
+// Delete Program
 const deleteProgram = asycnHandler(async (req, res) => {
   let program = await Program.findById(req.params.id);
   if (!program) {
@@ -34,12 +37,15 @@ const deleteProgram = asycnHandler(async (req, res) => {
   res.status(200).json({ msg: "Program is deleted." });
 });
 
+// Get All Programs
 const getAllPrograms = asycnHandler(async (req, res) => {
   const program = await Program.find({});
   if (program) {
     res.status(200).json(program);
   }
 });
+
+// Get One Program
 const getOneProgram = asycnHandler(async (req, res) => {
   const program = await Program.findById(req.params.id);
   if (program) {
@@ -47,6 +53,7 @@ const getOneProgram = asycnHandler(async (req, res) => {
   }
 });
 
+// count and register attended members
 const attendedMembers = asycnHandler(async (req, res) => {
   let program = await Program.findById(req.params.id);
   if (!program) {

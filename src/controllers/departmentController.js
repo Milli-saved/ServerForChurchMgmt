@@ -1,12 +1,15 @@
 const asyncHandler = require("express-async-handler");
 const Department = require("../models/departmentsModel");
 
+// Add new Department
 const addNewDepartment = asyncHandler(async (req, res) => {
   let department = await Department.create(req.body);
   if (department) {
     res.status(200).json(department);
   }
 });
+
+// Update Department
 const updateDepartment = asyncHandler(async (req, res) => {
   const deparment = await Department.findById(req.params.id);
   if (!deparment) {
@@ -20,6 +23,8 @@ const updateDepartment = asyncHandler(async (req, res) => {
   );
   res.status(200).json(updatedDept);
 });
+
+// Delete Department
 const deleteDepartment = asyncHandler(async (req, res) => {
   const deparment = await Department.findById(req.params.id);
   if (!deparment) {

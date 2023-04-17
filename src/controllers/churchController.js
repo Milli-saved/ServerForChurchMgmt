@@ -1,12 +1,15 @@
 const asyncHandler = require("express-async-handler");
 const Church = require("../models/churchModle");
 
+// Add New Church
 const addNewChurch = asyncHandler(async (req, res) => {
   let church = await Church.create(req.body);
   if (church) {
     res.status(200).json(church);
   }
 });
+
+// Update church
 const updateChurch = asyncHandler(async (req, res) => {
   const church = await Church.findById(req.params.id);
   if (!church) {
@@ -20,6 +23,8 @@ const updateChurch = asyncHandler(async (req, res) => {
   );
   res.status(200).json(updatedChurch);
 });
+
+// Delete Church
 const deleteChurch = asyncHandler(async (req, res) => {
   const church = await Church.findById(req.params.id);
   if (!church) {
@@ -29,6 +34,8 @@ const deleteChurch = asyncHandler(async (req, res) => {
   await Church.findByIdAndDelete(req.params.id);
   res.status(200).json({ msg: "Church is deleted." });
 });
+
+// Get all churches
 const getChurchs = asyncHandler(async (req, res) => {
   const church = await Church.find({});
   if (church) {

@@ -54,7 +54,7 @@ const membersSchema = mongoose.Schema(
       subCity: {
         type: String,
       },
-      wereda: {
+      woreda: {
         type: Number,
       },
       houseNumber: {
