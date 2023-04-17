@@ -7,6 +7,7 @@
 const express = require("express");
 const {
   addNewMember,
+  login,
   deleteMember,
   updateMemberProfile,
   getAllMembers,
@@ -15,7 +16,9 @@ const {
 
 const router = express.Router();
 
-router.route("/").post(addNewMember).get(getAllMembers);
+router.route("/register").post(addNewMember);
+router.route("/login").post(login);
+router.route("/").get(getAllMembers);
 router
   .route("/:id")
   .put(updateMemberProfile)
