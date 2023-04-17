@@ -20,7 +20,7 @@ const membersSchema = mongoose.Schema(
       type: Date,
       required: [true, "Date of Birth is required."],
     },
-    username: {
+    userName: {
       type: String,
       required: [true, "Please add you'r username."],
     },

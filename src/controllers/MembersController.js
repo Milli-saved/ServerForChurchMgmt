@@ -1,4 +1,5 @@
 const asycnHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
 const Member = require("../models/membersModel");
 
 // Generating JWT
@@ -6,9 +7,20 @@ const generateToken = (id) => jwt.sign({ id }, "Marcil", { expiresIn: "1d" });
 
 // Register member
 const addNewMember = asycnHandler(async (req, res) => {
+  const {
+    firstName,
+    lastName,
+    middleName,
+    userName,
+    password,
+    phoneNumber,
+    role,
+    dateOfBirth,
+    martialStatus,
+  } = req.body;
   //checking username and password is not used.
-  const userNameExists = await User.findOne({ username });
-  const phoneNumberExists = await User.findOne({ phonenumber });
+  const userNameExists = await Member.findOne({ userName });
+  const phoneNumberExists = await Member.findOne({ phoneNumber });
 
   if (userNameExists) {
     res.status(409);
@@ -29,18 +41,18 @@ const addNewMember = asycnHandler(async (req, res) => {
     dateOfBirth,
     userName,
     password: hashedPassword,
-    roles,
+    role,
     phoneNumber,
   });
   if (member) {
     res.status(201).json({
-      _id: member.id,
+      id: member._id,
       firstName: member.firstName,
       middleName: member.middleName,
       lastName: member.lastName,
       dateOfBirth: member.dateOfBirth,
       userName: member.userName,
-      roles: member.roles,
+      role: member.role,
       phoneNumber: member.phoneNumber,
       token: generateToken(member._id),
     });
