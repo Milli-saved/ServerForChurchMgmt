@@ -45,10 +45,26 @@ const getOneProgram = asycnHandler(async (req, res) => {
   }
 });
 
+const attendedMembers = asycnHandler(async (req, res) => {
+  let program = await Program.findById(req.params.id);
+  if (!program) {
+    res.status(400);
+    throw new Error("No program is found with this ID.");
+  }
+  let count = program.numberOfAttendedMembers;
+  let newNumberofAttendedMembers = count + 1;
+  await Program.findByIdAndUpdate(req.params.id, {
+    $push: { attendedMembers: req.body.memberId },
+    numberOfAttendedMembers: newNumberofAttendedMembers,
+  });
+  res.status(200).json({ ms: "Attendance accepted." });
+});
+
 module.exports = {
   addNewProgram,
   updateProgram,
   deleteProgram,
   getOneProgram,
   getAllPrograms,
+  attendedMembers,
 };
