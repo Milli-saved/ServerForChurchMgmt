@@ -6,11 +6,12 @@ const {
   getAllPrograms,
   getOneProgram,
   attendedMembers,
+  getAttendedMembers,
 } = require("../controllers/programsController");
 const router = express.Router();
 
 router.route("/").post(addNewProgram).get(getAllPrograms);
-router.route("/attendance").post(attendedMembers);
+router.route("/attendance/:id").post(attendedMembers).get(getAttendedMembers);
 router
   .route("/:id")
   .get(getOneProgram)

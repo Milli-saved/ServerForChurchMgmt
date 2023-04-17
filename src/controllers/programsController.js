@@ -60,6 +60,15 @@ const attendedMembers = asycnHandler(async (req, res) => {
   res.status(200).json({ ms: "Attendance accepted." });
 });
 
+const getAttendedMembers = asycnHandler(async (req, res) => {
+  let program = await Program.findById(req.params.id).populate("Member");
+  if (!program) {
+    res.status(400);
+    throw new Error("No program is found with this ID.");
+  }
+  res.status(200).json(program);
+});
+
 module.exports = {
   addNewProgram,
   updateProgram,
@@ -67,4 +76,5 @@ module.exports = {
   getOneProgram,
   getAllPrograms,
   attendedMembers,
+  getAttendedMembers,
 };
