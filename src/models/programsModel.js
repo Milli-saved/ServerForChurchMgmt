@@ -9,7 +9,9 @@ const programsSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Department",
     },
-    attendedMembers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Member" }],
+    attendedMembers: [
+      { memberName: { type: String }, memberArrivedAt: { type: Date } },
+    ],
     numberOfAttendedMembers: {
       type: Number,
       default: 0,

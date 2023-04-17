@@ -1,5 +1,7 @@
+const mongoose = require("mongoose");
 const asycnHandler = require("express-async-handler");
 const Program = require("../models/programsModel");
+const Member = mongoose.model("Member");
 
 const addNewProgram = asycnHandler(async (req, res) => {
   let program = await Program.create(req.body);
@@ -53,20 +55,23 @@ const attendedMembers = asycnHandler(async (req, res) => {
   }
   let count = program.numberOfAttendedMembers;
   let newNumberofAttendedMembers = count + 1;
+  let member = await Member.findById(req.body.memberId);
   await Program.findByIdAndUpdate(req.params.id, {
-    $push: { attendedMembers: req.body.memberId },
+    $push: {
+      attendedMembers: { memberName: member.userName, memberArrivedAt: Date() },
+    },
     numberOfAttendedMembers: newNumberofAttendedMembers,
   });
   res.status(200).json({ ms: "Attendance accepted." });
 });
 
 const getAttendedMembers = asycnHandler(async (req, res) => {
-  let program = await Program.findById(req.params.id).populate("Member");
+  let program = await Program.findById(req.params.id);
   if (!program) {
     res.status(400);
     throw new Error("No program is found with this ID.");
   }
-  res.status(200).json(program);
+  res.status(200).json(program.attendedMembers);
 });
 
 module.exports = {
