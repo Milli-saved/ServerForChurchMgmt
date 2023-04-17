@@ -1,5 +1,6 @@
 const asycnHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const Member = require("../models/membersModel");
 
 // Generating JWT
@@ -43,6 +44,7 @@ const addNewMember = asycnHandler(async (req, res) => {
     password: hashedPassword,
     role,
     phoneNumber,
+    martialStatus,
   });
   if (member) {
     res.status(201).json({
@@ -54,6 +56,7 @@ const addNewMember = asycnHandler(async (req, res) => {
       userName: member.userName,
       role: member.role,
       phoneNumber: member.phoneNumber,
+      martialStatus: member.martialStatus,
       token: generateToken(member._id),
     });
   } else {
@@ -69,10 +72,9 @@ const login = asycnHandler(async (req, res) => {
   if (user) {
     let checkPassword = await bcrypt.compare(password, user.password);
     if (checkPassword) {
+      user.password = null;
       res.status(200).json({
-        _id: user._id,
-        username: user.username,
-        phonenumber: user.phonenumber,
+        user,
         token: generateToken(user._id),
       });
     } else {
