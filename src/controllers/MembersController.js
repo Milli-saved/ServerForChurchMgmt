@@ -24,11 +24,11 @@ const addNewMember = asycnHandler(async (req, res) => {
   const phoneNumberExists = await Member.findOne({ phoneNumber });
 
   if (userNameExists) {
-    res.status(400);
+    res.status(409);
     throw new Error(`User name ${username} is already used.`);
   }
   if (phoneNumberExists) {
-    res.status(400);
+    res.status(409);
     throw new Error(`Phone number ${phonenumber} is already used.`);
   }
 
