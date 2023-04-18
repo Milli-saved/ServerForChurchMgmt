@@ -13,3 +13,5 @@ const connectToDB = async () => {
   }
 };
 module.exports = connectToDB;
+
+// mongodb+srv://million12tenkir:<password>@churchmgmtsystem.cyg16ou.mongodb.net/?retryWrites=true&w=majority
