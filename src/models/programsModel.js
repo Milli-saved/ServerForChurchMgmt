@@ -10,7 +10,11 @@ const programsSchema = mongoose.Schema(
       ref: "Department",
     },
     attendedMembers: [
-      { memberName: { type: String }, memberArrivedAt: { type: Date } },
+      {
+        memberId: { type: mongoose.Schema.Types.ObjectId },
+        vmemberName: { type: String },
+        memberArrivedAt: { type: Date },
+      },
     ],
     numberOfAttendedMembers: {
       type: Number,
