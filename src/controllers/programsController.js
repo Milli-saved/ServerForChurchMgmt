@@ -76,6 +76,7 @@ const attendedMembers = asycnHandler(async (req, res) => {
   res.status(200).json({ ms: "Attendance accepted." });
 });
 
+// registering attended members
 const getAttendedMembers = asycnHandler(async (req, res) => {
   let program = await Program.findById(req.params.id);
   if (!program) {

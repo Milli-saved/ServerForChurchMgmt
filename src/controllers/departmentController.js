@@ -34,12 +34,16 @@ const deleteDepartment = asyncHandler(async (req, res) => {
   await Department.findByIdAndDelete(req.params.id);
   res.status(200).json({ msg: "Department is deleted." });
 });
+
+// Get all departments
 const getAllDepartments = asyncHandler(async (req, res) => {
   const department = await Department.find({});
   if (department) {
     res.status(200).json(department);
   }
 });
+
+// Get one department using id
 const getOneDepartment = asyncHandler(async (req, res) => {
   const department = await Department.findById(req.params.id);
   if (department) {

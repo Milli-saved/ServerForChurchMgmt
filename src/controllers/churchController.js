@@ -43,6 +43,7 @@ const getChurchs = asyncHandler(async (req, res) => {
   }
 });
 
+// Get One Church using id
 const getOneChurch = asyncHandler(async (req, res) => {
   const church = await Church.findById(req.params.id);
   if (church) {
