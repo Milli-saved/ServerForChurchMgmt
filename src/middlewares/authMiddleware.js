@@ -24,6 +24,9 @@ const checkToken = asycnHandler(async (req, res, next) => {
       res.status(401);
       throw new Error("Not authorized, no token");
     }
+  } else {
+    res.status(400);
+    throw new Error("Token validation failed.");
   }
 });
 
