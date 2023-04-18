@@ -49,7 +49,7 @@
         --> knowOfOurChurch = []
         --> timeOfArrival = Date
         --> learningDicipleshipClass = Boolean
-        --> deparment = []
+        --> deparment = [ ObjectId of departments ]
         --> academicStatus
         --> profession
         --> workingInCompany
