@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 const asycnHandler = require("express-async-handler");
-const Member = require("../models/MembersModel");
+const Member = mongoose.model("Member");
 
 const checkToken = asycnHandler(async (req, res, next) => {
   let token;
