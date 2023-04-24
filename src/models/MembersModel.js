@@ -109,6 +109,10 @@ const membersSchema = mongoose.Schema(
     OnlineMember: {
       type: Boolean, // is the member online or not
     },
+    churchName: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Church",
+    },
   },
   {
     timestamps: true,
