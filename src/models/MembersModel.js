@@ -103,8 +103,12 @@ const membersSchema = mongoose.Schema(
       type: String,
     },
     typeOfMember: {
-      type: String // wether the member is new chrstian or else
-    }
+      type: String, // wether the member is new chrstian or else
+    },
+
+    OnlineMember: {
+      type: Boolean, // is the member online or not
+    },
   },
   {
     timestamps: true,
