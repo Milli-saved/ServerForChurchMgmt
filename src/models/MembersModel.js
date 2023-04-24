@@ -102,6 +102,9 @@ const membersSchema = mongoose.Schema(
     vision: {
       type: String,
     },
+    typeOfMember: {
+      type: String // wether the member is new chrstian or else
+    }
   },
   {
     timestamps: true,
