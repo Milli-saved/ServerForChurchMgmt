@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const churchBranchSchema = mongoose.Schema({
-  churchName: {
+  church: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Church",
   },
