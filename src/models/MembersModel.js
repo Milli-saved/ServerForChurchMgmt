@@ -113,7 +113,10 @@ const membersSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Church",
     },
-    
+    churchBranch: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ChurchBranch",
+    },
   },
   {
     timestamps: true,
