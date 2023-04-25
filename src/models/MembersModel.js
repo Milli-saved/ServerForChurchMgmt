@@ -108,14 +108,17 @@ const membersSchema = mongoose.Schema(
 
     OnlineMember: {
       type: Boolean, // is the member online or not
+      required: [true, "Type of member is required."],
     },
     churchName: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Church",
+      required: [true, "Church name for member is required."],
     },
     churchBranch: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "ChurchBranch",
+      required: [true, "Church branch for member is required."],
     },
   },
   {
