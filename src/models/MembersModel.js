@@ -106,7 +106,7 @@ const membersSchema = mongoose.Schema(
       type: String, // wether the member is new chrstian or else
     },
 
-    OnlineMember: {
+    onlineMember: {
       type: Boolean, // is the member online or not
       required: [true, "Type of member is required."],
     },
