@@ -146,18 +146,18 @@
     -> GET Method
     -> URL = /api/v1/church
 
-## Church
+## Church Branch
 
-### Add New Church
+### Add New Church Branch
 
     -> POST Method
-    -> URL = /api/v1/church
+    -> URL = /api/v1/branch
     -> required inputs
-        --> churchName
+        --> church
         --> churchBranchName
-        --> churchLocation
-        --> leadPastor = { ObjectId of Members }
-        --> numberOfMembers
+        --> churchBranchLocation
+        --> churchBranchLeadPastor = { ObjectId of Members }
+        --> churchMembersNumber
 
 ### Update Church
 
