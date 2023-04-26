@@ -162,13 +162,13 @@
 ### Update Church
 
     -> PUT Method
-    -> URL = /api/v1/church/:id
+    -> URL = /api/v1/branch/:id
     -> optional inputs
-        --> churchName
+        --> church
         --> churchBranchName
-        --> churchLocation
-        --> leadPastor = { ObjectId of Members }
-        --> numberOfMembers
+        --> churchBranchLocation
+        --> churchBranchLeadPastor = { ObjectId of Members }
+        --> churchMembersNumber
 
 ### Delete Church
 
