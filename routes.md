@@ -159,7 +159,7 @@
         --> churchBranchLeadPastor = { ObjectId of Members }
         --> churchMembersNumber
 
-### Update Church
+### Update Church branch
 
     -> PUT Method
     -> URL = /api/v1/branch/:id
@@ -170,7 +170,7 @@
         --> churchBranchLeadPastor = { ObjectId of Members }
         --> churchMembersNumber
 
-### Delete Church
+### Delete Church branch
 
     -> DELETE Method
     -> URL = /api/v1/branch/:id
