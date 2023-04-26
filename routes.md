@@ -173,7 +173,7 @@
 ### Delete Church
 
     -> DELETE Method
-    -> URL = /api/v1/church/:id
+    -> URL = /api/v1/branch/:id
 
 ### Get All Churches
 
