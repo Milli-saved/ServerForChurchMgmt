@@ -146,6 +146,45 @@
     -> GET Method
     -> URL = /api/v1/church
 
+## Church
+
+### Add New Church
+
+    -> POST Method
+    -> URL = /api/v1/church
+    -> required inputs
+        --> churchName
+        --> churchBranchName
+        --> churchLocation
+        --> leadPastor = { ObjectId of Members }
+        --> numberOfMembers
+
+### Update Church
+
+    -> PUT Method
+    -> URL = /api/v1/church/:id
+    -> optional inputs
+        --> churchName
+        --> churchBranchName
+        --> churchLocation
+        --> leadPastor = { ObjectId of Members }
+        --> numberOfMembers
+
+### Delete Church
+
+    -> DELETE Method
+    -> URL = /api/v1/church/:id
+
+### Get All Churches
+
+    -> GET Method
+    -> URL = /api/v1/church
+
+### Get One Church
+
+    -> GET Method
+    -> URL = /api/v1/church
+
 ## Programs
 
 ### Add New Program
