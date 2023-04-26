@@ -175,15 +175,15 @@
     -> DELETE Method
     -> URL = /api/v1/branch/:id
 
-### Get All Churches
+### Get All Churches branch
 
     -> GET Method
-    -> URL = /api/v1/church
+    -> URL = /api/v1/branch
 
-### Get One Church
+### Get One Church branch
 
     -> GET Method
-    -> URL = /api/v1/church
+    -> URL = /api/v1/branch
 
 ## Programs
 
