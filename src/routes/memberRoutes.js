@@ -12,7 +12,7 @@ const {
   updateMemberProfile,
   getAllMembers,
   getOneMember,
-} = require("../controllers/membersController");
+} = require("../controllers/MembersController");
 
 const router = express.Router();
 
