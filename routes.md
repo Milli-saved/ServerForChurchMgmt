@@ -49,7 +49,7 @@
         --> knowOfOurChurch = []
         --> timeOfArrival = Date
         --> learningDicipleshipClass = Boolean
-        --> deparment = []
+        --> deparment = [ ObjectId of departments ]
         --> academicStatus
         --> profession
         --> workingInCompany
@@ -145,6 +145,45 @@
 
     -> GET Method
     -> URL = /api/v1/church
+
+## Church Branch
+
+### Add New Church Branch
+
+    -> POST Method
+    -> URL = /api/v1/branch
+    -> required inputs
+        --> church
+        --> churchBranchName
+        --> churchBranchLocation
+        --> churchBranchLeadPastor = { ObjectId of Members }
+        --> churchMembersNumber
+
+### Update Church branch
+
+    -> PUT Method
+    -> URL = /api/v1/branch/:id
+    -> optional inputs
+        --> church
+        --> churchBranchName
+        --> churchBranchLocation
+        --> churchBranchLeadPastor = { ObjectId of Members }
+        --> churchMembersNumber
+
+### Delete Church branch
+
+    -> DELETE Method
+    -> URL = /api/v1/branch/:id
+
+### Get All Churches branch
+
+    -> GET Method
+    -> URL = /api/v1/branch
+
+### Get One Church branch
+
+    -> GET Method
+    -> URL = /api/v1/branch
 
 ## Programs
 

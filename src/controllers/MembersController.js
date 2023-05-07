@@ -18,6 +18,9 @@ const addNewMember = asycnHandler(async (req, res) => {
     role,
     dateOfBirth,
     martialStatus,
+    onlineMember,
+    churchName,
+    churchBranch,
   } = req.body;
   //checking username and password is not used.
   const userNameExists = await Member.findOne({ userName });
@@ -45,6 +48,9 @@ const addNewMember = asycnHandler(async (req, res) => {
     role,
     phoneNumber,
     martialStatus,
+    onlineMember,
+    churchName,
+    churchBranch,
   });
   if (member) {
     res.status(201).json({
