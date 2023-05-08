@@ -30,6 +30,9 @@ const programsSchema = mongoose.Schema(
     programDate: {
       type: Date,
     },
+    programType: {
+      type: String, // Permanent or Event
+    },
   },
   { timestamps: true }
 );

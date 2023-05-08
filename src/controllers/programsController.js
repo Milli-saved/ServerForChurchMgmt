@@ -123,4 +123,5 @@ module.exports = {
   attendedMembers,
   getAttendedMembers,
   absentRequest,
+  getAbsentMembers,
 };
