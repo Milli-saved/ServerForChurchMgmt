@@ -12,7 +12,7 @@ const programsSchema = mongoose.Schema(
     attendedMembers: [
       {
         memberId: { type: mongoose.Schema.Types.ObjectId },
-        vmemberName: { type: String },
+        memberName: { type: String },
         memberArrivedAt: { type: Date },
       },
     ],
@@ -20,8 +20,18 @@ const programsSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    absentMembers: [
+      {
+        memberId: { type: mongoose.Schema.Types.ObjectId },
+        memberName: { type: String },
+        reason: { type: String },
+      },
+    ],
     programDate: {
       type: Date,
+    },
+    programType: {
+      type: String, // Permanent or Event
     },
   },
   { timestamps: true }

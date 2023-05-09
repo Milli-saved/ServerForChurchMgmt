@@ -86,6 +86,34 @@ const getAttendedMembers = asycnHandler(async (req, res) => {
   res.status(200).json(program.attendedMembers);
 });
 
+const absentRequest = asycnHandler(async (req, res) => {
+  let program = await Program.findById(req.params.id);
+  if (!program) {
+    res.status(400);
+    throw new Error("No program is found with this ID.");
+  }
+
+  let member = await Member.findById(req.body.memberId);
+  await Program.findByIdAndUpdate(req.params.id, {
+    $push: {
+      absentMembers: {
+        memberId: member._id,
+        memberName: member.userName,
+        reason: req.body.reason,
+      },
+    },
+  });
+  res.status(200).json({ ms: "Absent leave requested." });
+});
+
+const getAbsentMembers = asycnHandler(async (req, res) => {
+  let program = await Program.findById(req.params.id);
+  if (!program) {
+    res.status(400);
+    throw new Error("No program is found with this ID.");
+  }
+  res.status(200).json(program.absentMembers);
+});
 module.exports = {
   addNewProgram,
   updateProgram,
@@ -94,4 +122,6 @@ module.exports = {
   getAllPrograms,
   attendedMembers,
   getAttendedMembers,
+  absentRequest,
+  getAbsentMembers,
 };
