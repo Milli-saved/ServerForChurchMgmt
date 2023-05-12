@@ -20,6 +20,7 @@ const programsSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    // leaveMembers
     absentMembers: [
       {
         memberId: { type: mongoose.Schema.Types.ObjectId },
