@@ -73,8 +73,9 @@ const addNewMember = asycnHandler(async (req, res) => {
 
 // Login
 const login = asycnHandler(async (req, res) => {
-  const { username, password } = req.body;
-  const user = await Member.findOne({ username });
+  const { userName, password } = req.body;
+  console.log("in backend,", userName, password);
+  const user = await Member.findOne({ userName });
   if (user) {
     let checkPassword = await bcrypt.compare(password, user.password);
     if (checkPassword) {

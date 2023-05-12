@@ -113,12 +113,12 @@ const membersSchema = mongoose.Schema(
     churchName: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Church",
-      required: [true, "Church name for member is required."],
+      // required: [true, "Church name for member is required."],
     },
     churchBranch: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "ChurchBranch",
-      required: [true, "Church branch for member is required."],
+      // required: [true, "Church branch for member is required."],
     },
   },
   {
