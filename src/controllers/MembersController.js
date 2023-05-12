@@ -18,9 +18,9 @@ const addNewMember = asycnHandler(async (req, res) => {
     role,
     dateOfBirth,
     martialStatus,
-    onlineMember,
-    churchName,
-    churchBranch,
+    memberType,
+    // churchName,
+    // churchBranch,
   } = req.body;
   //checking username and password is not used.
   const userNameExists = await Member.findOne({ userName });
@@ -38,6 +38,7 @@ const addNewMember = asycnHandler(async (req, res) => {
   // Hashing the Password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
+  console.log("checkdata", req.body.onlineMember);
   let member = await Member.create({
     firstName,
     middleName,
@@ -48,9 +49,9 @@ const addNewMember = asycnHandler(async (req, res) => {
     role,
     phoneNumber,
     martialStatus,
-    onlineMember,
-    churchName,
-    churchBranch,
+    onlineMember: memberType,
+    // churchName,
+    // churchBranch,
   });
   if (member) {
     res.status(201).json({

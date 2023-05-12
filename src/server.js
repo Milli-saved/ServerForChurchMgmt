@@ -5,7 +5,7 @@ const { errorHandler } = require("./middlewares/errorMiddleware");
 const connectToDB = require("./config/db");
 
 // port number for the server && will be changed for production
-const port = 5000;
+const port = 5001;
 
 // Connecting to Database
 connectToDB();
