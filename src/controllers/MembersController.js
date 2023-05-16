@@ -55,15 +55,7 @@ const addNewMember = asycnHandler(async (req, res) => {
   });
   if (member) {
     res.status(201).json({
-      id: member._id,
-      firstName: member.firstName,
-      middleName: member.middleName,
-      lastName: member.lastName,
-      dateOfBirth: member.dateOfBirth,
-      userName: member.userName,
-      role: member.role,
-      phoneNumber: member.phoneNumber,
-      martialStatus: member.martialStatus,
+      member,
       token: generateToken(member._id),
     });
   } else {
@@ -75,15 +67,14 @@ const addNewMember = asycnHandler(async (req, res) => {
 // Login
 const login = asycnHandler(async (req, res) => {
   const { userName, password } = req.body;
-  console.log("in backend,", userName, password);
-  const user = await Member.findOne({ userName });
-  if (user) {
-    let checkPassword = await bcrypt.compare(password, user.password);
+  const member = await Member.findOne({ userName });
+  if (member) {
+    let checkPassword = await bcrypt.compare(password, member.password);
     if (checkPassword) {
-      user.password = null;
+      member.password = null;
       res.status(200).json({
-        user,
-        token: generateToken(user._id),
+        member,
+        token: generateToken(member._id),
       });
     } else {
       res.status(400);
