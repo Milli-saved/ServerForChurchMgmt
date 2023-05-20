@@ -8,8 +8,8 @@ const {
   getOneProgram,
   attendedMembers,
   getAttendedMembers,
-  absentRequest,
-  getAbsentMembers,
+  leaveRequest,
+  absentMembersbyLeaveReq,
 } = require("../controllers/programsController");
 const router = express.Router();
 
@@ -18,7 +18,7 @@ router
   .route("/attendance/:id")
   .post(checkToken, attendedMembers)
   .get(checkToken, getAttendedMembers);
-router.route("/absent/:id").get(getAbsentMembers).post(absentRequest);
+router.route("/absent/:id").get(absentMembersbyLeaveReq).post(leaveRequest);
 router
   .route("/:id")
   .get(getOneProgram)

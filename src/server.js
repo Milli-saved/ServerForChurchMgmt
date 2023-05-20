@@ -23,6 +23,7 @@ app.use("/api/v1/department", require("./routes/departmentRoutes"));
 app.use("/api/v1/church", require("./routes/churchRoutes"));
 app.use("/api/v1/program", require("./routes/programsRoute"));
 app.use("/api/v1/branch", require("./routes/churchBranchRoutes"));
+app.use("/api/v1/guest", require("./routes/guestMemberRoutes"));
 
 // Wrong route handler
 app.use("*", (req, res) => {

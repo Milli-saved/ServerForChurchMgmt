@@ -86,7 +86,7 @@ const getAttendedMembers = asycnHandler(async (req, res) => {
   res.status(200).json(program.attendedMembers);
 });
 
-const absentRequest = asycnHandler(async (req, res) => {
+const leaveRequest = asycnHandler(async (req, res) => {
   let program = await Program.findById(req.params.id);
   if (!program) {
     res.status(400);
@@ -106,7 +106,7 @@ const absentRequest = asycnHandler(async (req, res) => {
   res.status(200).json({ ms: "Absent leave requested." });
 });
 
-const getAbsentMembers = asycnHandler(async (req, res) => {
+const absentMembersbyLeaveReq = asycnHandler(async (req, res) => {
   let program = await Program.findById(req.params.id);
   if (!program) {
     res.status(400);
@@ -122,6 +122,6 @@ module.exports = {
   getAllPrograms,
   attendedMembers,
   getAttendedMembers,
-  absentRequest,
-  getAbsentMembers,
+  leaveRequest,
+  absentMembersbyLeaveReq,
 };
