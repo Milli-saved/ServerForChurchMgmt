@@ -39,7 +39,7 @@ const deleteProgram = asycnHandler(async (req, res) => {
 
 // Get All Programs
 const getAllPrograms = asycnHandler(async (req, res) => {
-  const program = await Program.find({});
+  const program = await Program.find({}).populate("department");
   if (program) {
     res.status(200).json(program);
   }

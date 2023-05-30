@@ -108,7 +108,7 @@ const membersSchema = mongoose.Schema(
 
     onlineMember: {
       type: Boolean, // is the member online or not
-      required: [true, "Type of member is required."],
+      // required: [true, "Type of member is required."],
     },
     churchName: {
       type: mongoose.Schema.Types.ObjectId,
