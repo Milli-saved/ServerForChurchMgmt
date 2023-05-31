@@ -17,7 +17,7 @@ const membersSchema = mongoose.Schema(
       required: [true, "Last name is required."],
     },
     dateOfBirth: {
-      type: Date,
+      type: String,
       required: [true, "Date of Birth is required."],
     },
     userName: {
