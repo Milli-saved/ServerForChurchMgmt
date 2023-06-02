@@ -6,39 +6,39 @@ const membersSchema = mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: [true, "Frist name is required."],
+      required: true,
     },
     middleName: {
       type: String,
-      required: [true, "Middle name is required."],
+      required: true,
     },
     lastName: {
       type: String,
-      required: [true, "Last name is required."],
+      required: true,
     },
     dateOfBirth: {
       type: String,
-      required: [true, "Date of Birth is required."],
+      required: true,
     },
     userName: {
       type: String,
-      required: [true, "Please add you'r username."],
+      required: true,
     },
     password: {
       type: String,
-      required: [true, "Password is required."],
+      required: true,
     },
     role: {
       type: String,
-      required: [true, "Role is required."],
+      required: true,
     },
     phoneNumber: {
       type: Number,
-      required: [true, "Phone number is required."],
+      required: true,
     },
     martialStatus: {
       type: String,
-      required: [true, "Martial status is required."],
+      required: true,
     },
     spouseFullName: {
       type: String,
