@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const acessToMembersSchema = mongoose.Schema(
+const Access = mongoose.Schema(
   {
     member: {
       type: mongoose.Schema.Types.ObjectId,
@@ -24,4 +24,4 @@ const acessToMembersSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Access", acessToMembersSchema)
+module.exports = mongoose.model("Access", Access);
