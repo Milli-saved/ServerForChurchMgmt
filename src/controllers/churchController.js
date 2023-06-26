@@ -37,7 +37,7 @@ const deleteChurch = asyncHandler(async (req, res) => {
 
 // Get all churches
 const getChurchs = asyncHandler(async (req, res) => {
-  const church = await Church.find({}).populate("leadPastor");
+  const church = await Church.find({})
   if (church) {
     res.status(200).json(church);
   }
