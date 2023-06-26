@@ -6,6 +6,10 @@ const churchSchema = mongoose.Schema(
       type: String,
       required: [true, "Chruch name is required."],
     },
+    leadPastor: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "member",
+    },
     overAllNumberOfMembers: {
       type: Number,
     },
