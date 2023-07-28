@@ -14,10 +14,7 @@ const {
 const router = express.Router();
 
 router.route("/").post(addNewProgram).get(getAllPrograms);
-router
-  .route("/attendance/:id")
-  .post(checkToken, attendedMembers)
-  .get(checkToken, getAttendedMembers);
+router.route("/attendance").post(attendedMembers).get(getAttendedMembers);
 router.route("/absent/:id").get(absentMembersbyLeaveReq).post(leaveRequest);
 router
   .route("/:id")
