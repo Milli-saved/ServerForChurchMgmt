@@ -62,7 +62,7 @@ const attendedMembers = asycnHandler(async (req, res) => {
   }
   let count = program.numberOfAttendedMembers;
   let newNumberofAttendedMembers = count + 1;
-  let member = await Member.findById(req.body.memberId);
+  let member = await Member.findById(req.body.member);
   await Program.findByIdAndUpdate(req.body.programId, {
     $push: {
       attendedMembers: {
