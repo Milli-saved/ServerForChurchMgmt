@@ -127,6 +127,13 @@ const getAllMembers = asycnHandler(async (req, res) => {
   }
 });
 
+const getAllMembersOfChurch = asycnHandler(async (req, res) => {
+  const members = await Member.find({ churchName: req.body });
+  if (members) {
+    res.status(200).json(members);
+  }
+});
+
 // Get one member
 const getOneMember = asycnHandler(async (req, res) => {
   const member = await Member.findById(req.params.id).select("-password");
@@ -142,4 +149,5 @@ module.exports = {
   deleteMember,
   getAllMembers,
   getOneMember,
+  getAllMembersOfChurch,
 };
