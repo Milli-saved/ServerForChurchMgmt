@@ -128,7 +128,7 @@ const getAllMembers = asycnHandler(async (req, res) => {
 });
 
 const getAllMembersOfChurch = asycnHandler(async (req, res) => {
-  const members = await Member.find({ churchName: req.body });
+  const members = await Member.find({ churchName: req.body.churchName });
   if (members) {
     res.status(200).json(members);
   }
