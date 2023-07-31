@@ -12,13 +12,14 @@ const {
   updateMemberProfile,
   getAllMembers,
   getOneMember,
+  getAllMembersOfChurch,
 } = require("../controllers/MembersController");
 
 const router = express.Router();
 
 router.route("/register").post(addNewMember);
 router.route("/login").post(login);
-router.route("/").get(getAllMembers);
+router.route("/").get(getAllMembers).post(getAllMembersOfChurch);
 router
   .route("/:id")
   .put(updateMemberProfile)
