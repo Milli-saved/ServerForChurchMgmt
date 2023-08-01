@@ -14,12 +14,17 @@ const {
   getOneMember,
   getAllMembersOfChurch,
 } = require("../controllers/MembersController");
+const {
+  addNewAccess,
+  updateAccess,
+} = require("../controllers/accessController");
 
 const router = express.Router();
 
 router.route("/register").post(addNewMember);
 router.route("/login").post(login);
 router.route("/").get(getAllMembers).post(getAllMembersOfChurch);
+router.route("/access").get().post(updateAccess);
 router
   .route("/:id")
   .put(updateMemberProfile)
