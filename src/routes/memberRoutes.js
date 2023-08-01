@@ -16,6 +16,7 @@ const {
 } = require("../controllers/MembersController");
 const {
   addNewAccess,
+  getAllAccess,
   updateAccess,
 } = require("../controllers/accessController");
 
@@ -24,7 +25,8 @@ const router = express.Router();
 router.route("/register").post(addNewMember);
 router.route("/login").post(login);
 router.route("/").get(getAllMembers).post(getAllMembersOfChurch);
-router.route("/access").get().post(updateAccess);
+router.route("/access").post(addNewAccess);
+router.route("/access/:id").get(getAllAccess).put(updateAccess);
 router
   .route("/:id")
   .put(updateMemberProfile)
