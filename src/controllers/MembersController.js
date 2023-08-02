@@ -1,7 +1,9 @@
 const asycnHandler = require("express-async-handler");
+const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Member = require("../models/MembersModel");
+const Access = require("../models/accessToUsers");
 
 // Generating JWT
 const generateToken = (id) => jwt.sign({ id }, "Marcil", { expiresIn: "1d" });
@@ -54,6 +56,13 @@ const addNewMember = asycnHandler(async (req, res) => {
     // churchBranch,
   });
   if (member) {
+    let access = Access.create({
+      member: member._id,
+      canAddChurch: false,
+      canAddMembers: false,
+      canAddDepartment: false,
+      canAddProgram: false,
+    });
     res.status(201).json({
       member,
       token: generateToken(member._id),
