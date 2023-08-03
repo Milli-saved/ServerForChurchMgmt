@@ -8,7 +8,7 @@ const churchSchema = mongoose.Schema(
     },
     leadPastor: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "member",
+      ref: "Member",
     },
     overAllNumberOfMembers: {
       type: Number,
