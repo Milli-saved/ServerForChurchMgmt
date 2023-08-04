@@ -21,7 +21,7 @@ const addNewMember = asycnHandler(async (req, res) => {
     dateOfBirth,
     martialStatus,
     memberType,
-    // churchName,
+    churchName,
     // churchBranch,
   } = req.body;
   //checking username and password is not used.
@@ -52,7 +52,7 @@ const addNewMember = asycnHandler(async (req, res) => {
     phoneNumber,
     martialStatus,
     onlineMember: memberType,
-    // churchName,
+    churchName,
     // churchBranch,
   });
   if (member) {
