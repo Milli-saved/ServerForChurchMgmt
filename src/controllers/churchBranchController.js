@@ -3,6 +3,8 @@ const ChurchBranch = require("../models/churchBranchModel");
 
 // Add New Church
 const addNewChurchBranch = asyncHandler(async (req, res) => {
+  req.body.approvalStatus = false;
+
   let church = await ChurchBranch.create(req.body);
   if (church) {
     res.status(200).json(church);

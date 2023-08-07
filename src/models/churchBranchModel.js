@@ -18,6 +18,9 @@ const churchBranchSchema = mongoose.Schema({
   churchMembersNumber: {
     type: Number,
   },
+  approvalStatus: {
+    type: Boolean
+  }
 });
 
 module.exports = mongoose.model("ChurchBranch", churchBranchSchema);
