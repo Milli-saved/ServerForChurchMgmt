@@ -6,9 +6,10 @@ const deparmentSchema = mongoose.Schema(
       type: String,
       required: [true, "Department Name is required."],
     },
-    departmentLeaders: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "Member" },
-    ],
+    departmentLeaders: {
+      // { type: mongoose.Schema.Types.ObjectId, ref: "Member" },
+      type: String,
+    },
     departmentWeeklyProgram: {
       type: Date,
       required: [true, "Weekly progam days are required."],

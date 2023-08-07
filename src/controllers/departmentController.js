@@ -37,7 +37,7 @@ const deleteDepartment = asyncHandler(async (req, res) => {
 
 // Get all departments
 const getAllDepartments = asyncHandler(async (req, res) => {
-  const department = await Department.find({});
+  const department = await Department.find({}).populate("departmentLeaders");
   if (department) {
     res.status(200).json(department);
   }
