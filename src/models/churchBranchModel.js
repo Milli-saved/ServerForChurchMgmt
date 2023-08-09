@@ -19,8 +19,8 @@ const churchBranchSchema = mongoose.Schema({
     type: Number,
   },
   approvalStatus: {
-    type: Boolean
-  }
+    type: Boolean,
+  },
 });
 
 module.exports = mongoose.model("ChurchBranch", churchBranchSchema);
