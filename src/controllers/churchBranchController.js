@@ -48,7 +48,9 @@ const getBranchesOfChurch = asyncHandler(async (req, res) => {
 
 // Get One Church using id
 const getOneChurchBranch = asyncHandler(async (req, res) => {
-  const church = await ChurchBranch.find({ church: req.params.id });
+  const church = await ChurchBranch.find({ church: req.params.id }).populate(
+    "churchBranchLeadPastor"
+  );
   console.log("churchs are these: ", church);
   if (church) {
     res.status(200).json(church);
