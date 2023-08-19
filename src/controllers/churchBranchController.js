@@ -39,8 +39,8 @@ const deleteChurchBranch = asyncHandler(async (req, res) => {
 
 // Get all churches
 const getBranchesOfChurch = asyncHandler(async (req, res) => {
-  const { churchId } = req.body;
-  const church = await ChurchBranch.find({ church: churchId });
+  // const { churchId } = req.body;
+  const church = await ChurchBranch.find({});
   if (church) {
     res.status(200).json(church);
   }

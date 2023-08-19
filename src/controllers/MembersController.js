@@ -22,7 +22,7 @@ const addNewMember = asycnHandler(async (req, res) => {
     martialStatus,
     memberType,
     churchName,
-    // churchBranch,
+    churchBranch, 
   } = req.body;
   //checking username and password is not used.
   const userNameExists = await Member.findOne({ userName });
@@ -52,7 +52,7 @@ const addNewMember = asycnHandler(async (req, res) => {
     martialStatus,
     onlineMember: memberType,
     churchName,
-    // churchBranch,
+    churchBranch,
   });
   if (member) {
     let access = Access.create({

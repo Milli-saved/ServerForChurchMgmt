@@ -14,6 +14,10 @@ const deparmentSchema = mongoose.Schema(
       type: Date,
       required: [true, "Weekly progam days are required."],
     },
+    churchBranch: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ChurchBranch",
+    },
   },
   { timestamps: true }
 );

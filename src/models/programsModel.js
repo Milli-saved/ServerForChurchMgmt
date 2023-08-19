@@ -31,6 +31,10 @@ const programsSchema = mongoose.Schema(
     programDate: {
       type: Date,
     },
+    churchBranch: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ChurchBranch",
+    },
     programType: {
       type: String, // Permanent or Event
     },

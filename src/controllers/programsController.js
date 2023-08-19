@@ -114,6 +114,22 @@ const absentMembersbyLeaveReq = asycnHandler(async (req, res) => {
   }
   res.status(200).json(program.absentMembers);
 });
+
+const deptProgramFromAtoB = asycnHandler(async (req, res) => {
+  let deptId = req.params.id;
+  let { startingDate, endingDate } = req.body;
+  let programs = await Program.find({ department: deptId });
+  let deptPrograms = [];
+  programs.forEach((eachProgram) => {
+    if (
+      eachProgram.programDate >= startingDate &&
+      eachProgram.programDate <= endingDate
+    ) {
+      deptPrograms.push(eachProgram);
+    }
+  });
+
+});
 module.exports = {
   addNewProgram,
   updateProgram,

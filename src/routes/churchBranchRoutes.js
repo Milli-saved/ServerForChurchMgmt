@@ -8,7 +8,7 @@ const {
 } = require("../controllers/churchBranchController");
 const router = express.Router();
 
-router.route("/getallbranches").post(getBranchesOfChurch);
+router.route("/getallbranches").get(getBranchesOfChurch);
 router.route("/addnewbranch").post(addNewChurchBranch);
 router
   .route("/:id")
