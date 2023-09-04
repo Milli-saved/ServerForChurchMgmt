@@ -2,8 +2,9 @@
 const express = require("express");
 const cors = require("cors");
 const { errorHandler } = require("./middlewares/errorMiddleware");
+const dotenv = require("dotenv");
 const connectToDB = require("./config/db");
-
+dotenv.config();
 // port number for the server && will be changed for production
 const port = 5001;
 
@@ -25,11 +26,18 @@ app.use("/api/v1/program", require("./routes/programsRoute"));
 app.use("/api/v1/branch", require("./routes/churchBranchRoutes"));
 app.use("/api/v1/guest", require("./routes/guestMemberRoutes"));
 
-// Wrong route handler
-app.use("*", (req, res) => {
-  res.status(500);
-  res.json(`wrong url is used.`);
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    )
+  );
+} else {
+  app.get("/", (req, res) =>
+    res.sendFile("Please change the NODE_ENV to production.")
+  );
+}
 
 // Setting errorHandler Middleware
 app.use(errorHandler);
