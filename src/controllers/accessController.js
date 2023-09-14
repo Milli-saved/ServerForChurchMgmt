@@ -2,7 +2,6 @@ const asyncHandler = require("express-async-handler");
 const Access = require("../models/accessToUsers");
 
 const addNewAccess = asyncHandler(async (req, res) => {
-  console.log("unid", req.body);
   let newAccess = await Access.create(req.body);
   if (newAccess) {
     res.status(200).json({

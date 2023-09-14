@@ -4,6 +4,7 @@ const cors = require("cors");
 const { errorHandler } = require("./middlewares/errorMiddleware");
 const dotenv = require("dotenv");
 const connectToDB = require("./config/db");
+const path = require('path')
 dotenv.config();
 // port number for the server && will be changed for production
 const port = 5001;

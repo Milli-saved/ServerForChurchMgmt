@@ -96,7 +96,6 @@ const login = asycnHandler(async (req, res) => {
 
 // Update member
 const updateMemberProfile = asycnHandler(async (req, res) => {
-  console.log("the data : ", req.body);
   const member = await Member.findById(req.params.id);
   if (!member) {
     res.status(400);
